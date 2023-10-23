@@ -20,7 +20,7 @@ def test_filling_and_send_form():
     registration_page.fill_state_and_city('Haryana', 'Karnal')
     registration_page.press_submit()
 
-    registration_page.assert_have_registrated_user('Бобр Добр',
+    registration_page.assert_have_registered_user('Бобр Добр',
                                                    'bobrdobr@test.ru',
                                                    'Male',
                                                    '1234567890',
