@@ -1,8 +1,8 @@
 """Класс для страницы регистрации https://demoqa.com/automation-practice-form"""
 from selene import have, command
-from os import path
 from selene.support.shared import browser
 from qa_guru_hw_10.data.user import User
+from pathlib import Path
 
 
 class RegistrationPage:
@@ -38,7 +38,7 @@ class RegistrationPage:
         browser.all('.custom-control').element_by(have.exact_text(value)).click()
 
     def _add_picture(self, value: str) -> None:
-        browser.element("#uploadPicture").send_keys(path.abspath(value))
+        browser.element("#uploadPicture").send_keys(str(Path(__file__).parent.parent.joinpath(f'data/pictures/{value}')))
 
     def _fill_current_address(self, value: str) -> None:
         browser.element('#currentAddress').type(value)
